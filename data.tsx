@@ -10,7 +10,7 @@ export const socialNetworks = [
   {
     id: 1,
     logo: <Linkedin size={30} strokeWidth={1} />,
-    src: "https://www.linkedin.com/ln/hernan-jorge-garrido",
+    src: "https://www.linkedin.com/in/hernan-jorge-garrido",
   },
   {
     id: 2,
