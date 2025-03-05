@@ -13,7 +13,9 @@ const Header = () => {
           <Link href={"/"}>
             <h1 className="my-3 text-4xl font-bold text-center md:text-left">
               Hernán
-              <span className="text-blue-500">Garrido</span>
+              <span className="text-blue-500">Garrido
+                <span className="text-blue-500/25"><br /> Desarrollador/Data Analyst</span>
+              </span>
             </h1>
           </Link>
           <div className="flex items-center justify-center gap-7">
