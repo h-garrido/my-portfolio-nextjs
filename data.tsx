@@ -121,32 +121,4 @@ export const dataPortfolio = [
     urlGithub: "#!",
     urlDemo: "#!",
   },
-  {
-    id: 5,
-    title: "Webs Impactantes",
-    image: "/image-5.jpg",
-    urlGithub: "#!",
-    urlDemo: "#!",
-  },
-  {
-    id: 6,
-    title: "Web Dinámica",
-    image: "/image-6.jpg",
-    urlGithub: "#!",
-    urlDemo: "#!",
-  },
-  {
-    id: 7,
-    title: "Dark Web ",
-    image: "/image-7.jpg",
-    urlGithub: "#!",
-    urlDemo: "#!",
-  },
-  {
-    id: 8,
-    title: "E-commerce web",
-    image: "/image-8.jpg",
-    urlGithub: "#!",
-    urlDemo: "#!",
-  },
 ];
