@@ -2,12 +2,37 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { nombre, email, mensaje } = await request.json();
+    const { nombre, email, mensaje, turnstileToken } = await request.json();
 
     // Validación básica
     if (!nombre || !email || !mensaje) {
       return NextResponse.json(
         { error: 'Todos los campos son obligatorios' },
+        { status: 400 }
+      );
+    }
+
+    // Validación de Turnstile
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { error: 'Token de verificación requerido' },
+        { status: 400 }
+      );
+    }
+
+    // Verificar token de Turnstile con Cloudflare
+    const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY}&response=${turnstileToken}`,
+    });
+
+    const turnstileResult = await turnstileResponse.json();
+    if (!turnstileResult.success) {
+      return NextResponse.json(
+        { error: 'Verificación de seguridad fallida' },
         { status: 400 }
       );
     }

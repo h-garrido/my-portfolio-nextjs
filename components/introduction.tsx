@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
 import { TypeAnimation } from "react-type-animation";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const Introduction = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ const Introduction = () => {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,6 +29,15 @@ const Introduction = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!turnstileToken) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Por favor completa la verificación de seguridad.'
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
@@ -37,7 +48,10 @@ const Introduction = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken
+        }),
       });
 
       const result = await response.json();
@@ -48,6 +62,7 @@ const Introduction = () => {
           message: result.message || '¡Mensaje enviado correctamente! Te contactaré pronto.' 
         });
         setFormData({ nombre: "", email: "", mensaje: "" });
+        setTurnstileToken(null);
 
         // Enviar también con EmailJS
         await emailjs.send(
@@ -198,6 +213,16 @@ const Introduction = () => {
                 {submitStatus.message}
               </div>
             )}
+
+            {/* Cloudflare Turnstile */}
+            <div className="flex justify-center">
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+                onSuccess={setTurnstileToken}
+                onError={() => setTurnstileToken(null)}
+                onExpire={() => setTurnstileToken(null)}                
+              />
+            </div>
 
             <button
               type="submit"
