@@ -8,14 +8,16 @@ const TransitionPage = () => {
     <AnimatePresence mode="wait">
       <div>
         <motion.div
-          className="fixed top-0 bottom-0 right-full 
+          className="fixed top-0 bottom-0 right-full
                     w-screen z-30 bg-[#000000]"
           variants={transitionVariantsPage}
           initial="initial"
           animate="animate"
           exit="exit"
           transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
-        ></motion.div>
+        >
+          
+        </motion.div>
       </div>
     </AnimatePresence>
   );
