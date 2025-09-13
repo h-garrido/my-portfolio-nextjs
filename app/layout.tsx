@@ -24,6 +24,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Override deprecated StorageType.persistent
+              if (typeof window !== 'undefined' && window.StorageType) {
+                window.StorageType.persistent = 'navigator-storage';
+              }
+              // Set global config for Turnstile storage
+              window.turnstileConfig = {
+                useNavigatorStorage: true
+              };
+            `,
+          }}
+        />
+        <script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           async
           defer
