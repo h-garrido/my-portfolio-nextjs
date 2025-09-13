@@ -79,8 +79,8 @@ const Introduction = () => {
   };
 
   return (
-    <div className="z-20 w-full bg-black/60">
-      <div className="z-20 grid items-center h-full p-6 py-20 md:py-0 md:grid-cols-2">
+    <div className="z-20 w-full bg-black/60 relative">
+      <div className="grid items-center h-full p-6 py-20 md:py-0 md:grid-cols-2">
         <Image
           src="/home-4.png"
           priority
@@ -132,8 +132,8 @@ const Introduction = () => {
           </div>
 
           {/* Formulario agregado */}
-          <form onSubmit={handleSubmit} className="mt-8 mb-8 pb-16 space-y-4">
-          <h2 className="text-center justify-center text-2xl font-bold mb-4">Contáctame</h2>
+          <form onSubmit={handleSubmit} className="mt-8 mb-8 pb-32 md:pb-16 space-y-4">
+          <h2 className="text-center text-2xl font-bold mb-4">Contáctame</h2>
             <div>
               <label
                 htmlFor="nombre"

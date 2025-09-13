@@ -41,7 +41,7 @@ const Specialties = () => {
   ];
 
   return (
-    <div className="py-20 px-6 relative z-10">
+    <div className="py-20 px-6 relative z-10 bg-gradient-to-b from-transparent via-black/80 to-black">
       <motion.div
         variants={fadeIn("bottom")}
         initial="hidden"
