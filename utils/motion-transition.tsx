@@ -22,8 +22,9 @@ export const fadeIn = (position: string) => {
       transition: {
         delay: 0.5,
         duration: 1.3,
-        type: "tween",
-        ease: [0.25, 0.25, 0.25, 0.75],
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 10,
       },
     },
     hidden: {
@@ -33,8 +34,9 @@ export const fadeIn = (position: string) => {
       transition: {
         delay: 0.5,
         duration: 1.3,
-        type: "tween",
-        ease: [0.25, 0.25, 0.25, 0.75],
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 10,
       },
     },
   };

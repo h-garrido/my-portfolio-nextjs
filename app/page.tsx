@@ -1,5 +1,6 @@
 import CoverParticles from "@/components/cover-particles";
 import Introduction from "@/components/introduction";
+import Specialties from "@/components/specialties";
 import TransitionPage from "@/components/transition-page";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <CoverParticles />
         <Introduction />
       </div>
+      <Specialties />
     </main>
   );
 }
