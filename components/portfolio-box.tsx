@@ -8,12 +8,13 @@ interface PortfolioBoxProps {
     image: string;
     urlGithub: string;
     urlDemo: string;
+    technologies: string[];
   };
 }
 
 const PortfolioBox = (props: PortfolioBoxProps) => {
   const { data } = props;
-  const { title, image, urlGithub } = data;
+  const { title, image, urlGithub, technologies } = data;
 
   return (
     <div className="p-4 border border-teal-50 rounded-xl">
@@ -27,6 +28,19 @@ const PortfolioBox = (props: PortfolioBoxProps) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
         />
       </div>
+
+      {technologies.length > 0 && (
+        <div className="flex flex-wrap gap-2 mt-3">
+          {technologies.map((tech, index) => (
+            <span
+              key={index}
+              className="px-2 py-1 text-xs font-medium text-white bg-blue-600 rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
 
       <div className="flex gap-5 mt-5">
         <Link

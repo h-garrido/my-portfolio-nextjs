@@ -31,10 +31,11 @@ const Specialties = () => {
       icon: "💻",
       title: "Desarrollo Web",
       skills: [
-        "Frontend Skills - Next.js, React, TypeScript para dashboards",
-        "Data Visualization Web - D3.js, Chart.js",
-        "API Development - Endpoints para servir modelos ML",
-        "Dashboard Creation - Interfaces para presentar análisis"
+        "Frontend Skills - Next.js, React, Angular, TypeScript, JavaScript",
+        "Backend Skills - Node.js, Express, Django",        
+        "API Development - Endpoints para servir modelos ML (TensorFlow.js, FastAPI)",
+        "Dashboard Creation - Interfaces para presentar análisis (Streamlit, Dash)",
+        "Database Management - SQL y NoSQL (Oracle, MySQL, PostgreSQL, MongoDB, Firebase)"
       ]
     }
   ];

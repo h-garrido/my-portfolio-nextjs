@@ -113,7 +113,7 @@ const Introduction = () => {
             />
           </h1>
           <p className="mx-auto mb-2 text-xl md:mx-0 md:mb-8">
-            Especialista en Ciencia de Datos y Análisis con expertise en Machine Learning, Business Intelligence y desarrollo de herramientas interactivas.
+            Estudiante egresado de Ingeniería en Informática especializado en Ciencia de Datos y Análisis, con expertise en Machine Learning, Business Intelligence y desarrollo de herramientas interactivas.
           </p>
 
           <div className="flex items-center justify-center gap-3 md:justify-start md:gap-10">
