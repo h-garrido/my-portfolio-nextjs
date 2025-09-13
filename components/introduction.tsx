@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import { TypeAnimation } from "react-type-animation";
-import { Turnstile } from '@marsidev/react-turnstile';
+import { Turnstile } from "@marsidev/react-turnstile";
 
 const Introduction = () => {
   const [formData, setFormData] = useState({
@@ -16,9 +16,9 @@ const Introduction = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
+    type: "success" | "error" | null;
     message: string;
-  }>({ type: null, message: '' });
+  }>({ type: null, message: "" });
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const handleChange = (
@@ -32,34 +32,36 @@ const Introduction = () => {
 
     if (!turnstileToken) {
       setSubmitStatus({
-        type: 'error',
-        message: 'Por favor completa la verificación de seguridad.'
+        type: "error",
+        message: "Por favor completa la verificación de seguridad.",
       });
       return;
     }
 
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: '' });
+    setSubmitStatus({ type: null, message: "" });
 
     try {
       // Opción 1: Usar API route local
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           ...formData,
-          turnstileToken
+          turnstileToken,
         }),
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        setSubmitStatus({ 
-          type: 'success', 
-          message: result.message || '¡Mensaje enviado correctamente! Te contactaré pronto.' 
+        setSubmitStatus({
+          type: "success",
+          message:
+            result.message ||
+            "¡Mensaje enviado correctamente! Te contactaré pronto.",
         });
         setFormData({ nombre: "", email: "", mensaje: "" });
         setTurnstileToken(null);
@@ -72,21 +74,23 @@ const Introduction = () => {
             from_name: formData.nombre,
             from_email: formData.email,
             message: formData.mensaje,
-            to_email: 'hernan.garrido@outlook.com'
+            to_email: "hernan.garrido@outlook.com",
           },
           process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
         );
       } else {
-        setSubmitStatus({ 
-          type: 'error', 
-          message: result.error || 'Error al enviar el mensaje. Inténtalo de nuevo.' 
+        setSubmitStatus({
+          type: "error",
+          message:
+            result.error || "Error al enviar el mensaje. Inténtalo de nuevo.",
         });
       }
     } catch (error) {
-      console.error('Error:', error);
-      setSubmitStatus({ 
-        type: 'error', 
-        message: 'Error de conexión. Verifica tu internet e inténtalo de nuevo.' 
+      console.error("Error:", error);
+      setSubmitStatus({
+        type: "error",
+        message:
+          "Error de conexión. Verifica tu internet e inténtalo de nuevo.",
       });
     } finally {
       setIsSubmitting(false);
@@ -128,7 +132,9 @@ const Introduction = () => {
             />
           </h1>
           <p className="mx-auto mb-2 text-xl md:mx-0 md:mb-8">
-            Estudiante egresado de Ingeniería en Informática especializado en Ciencia de Datos y Análisis, con expertise en Machine Learning, Business Intelligence y desarrollo de herramientas interactivas.
+            Estudiante egresado de Ingeniería en Informática especializado en
+            Ciencia de Datos y Análisis, con expertise en Machine Learning,
+            Business Intelligence y desarrollo de herramientas interactivas.
           </p>
 
           <div className="flex items-center justify-center gap-3 md:justify-start md:gap-10">
@@ -147,8 +153,11 @@ const Introduction = () => {
           </div>
 
           {/* Formulario agregado */}
-          <form onSubmit={handleSubmit} className="mt-8 mb-8 pb-32 md:pb-16 space-y-4">
-          <h2 className="text-center text-2xl font-bold mb-4">Contáctame</h2>
+          <form
+            onSubmit={handleSubmit}
+            className="mt-8 mb-8 pb-32 md:pb-16 space-y-4"
+          >
+            <h2 className="text-center text-2xl font-bold mb-4">Contáctame</h2>
             <div>
               <label
                 htmlFor="nombre"
@@ -205,11 +214,13 @@ const Introduction = () => {
             </div>
             {/* Mostrar estado del envío */}
             {submitStatus.type && (
-              <div className={`p-3 rounded-md text-sm ${
-                submitStatus.type === 'success' 
-                  ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-                  : 'bg-red-500/20 text-red-400 border border-red-500/30'
-              }`}>
+              <div
+                className={`p-3 rounded-md text-sm ${
+                  submitStatus.type === "success"
+                    ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                    : "bg-red-500/20 text-red-400 border border-red-500/30"
+                }`}
+              >
                 {submitStatus.message}
               </div>
             )}
@@ -217,10 +228,16 @@ const Introduction = () => {
             {/* Cloudflare Turnstile */}
             <div className="flex justify-center">
               <Turnstile
-                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
                 onSuccess={setTurnstileToken}
                 onError={() => setTurnstileToken(null)}
-                onExpire={() => setTurnstileToken(null)}                
+                onExpire={() => setTurnstileToken(null)}
+                options={{
+                  theme: "dark",
+                  size: "normal",
+                  retry: "auto",
+                  refreshExpired: "auto",
+                }}
               />
             </div>
 
@@ -228,12 +245,12 @@ const Introduction = () => {
               type="submit"
               disabled={isSubmitting}
               className={`w-full py-2 px-4 text-white rounded-md transition-colors ${
-                isSubmitting 
-                  ? 'bg-gray-600 cursor-not-allowed' 
-                  : 'bg-blue-500 hover:bg-blue-600'
+                isSubmitting
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-600"
               }`}
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar'}
+              {isSubmitting ? "Enviando..." : "Enviar"}
             </button>
           </form>
           {/* Fin del formulario */}
