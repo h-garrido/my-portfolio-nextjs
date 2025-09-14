@@ -12,6 +12,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validación de longitud para prevenir ataques
+    if (nombre.length > 100 || email.length > 100 || mensaje.length > 1000) {
+      return NextResponse.json(
+        { error: 'Datos exceden límite permitido' },
+        { status: 400 }
+      );
+    }
+
+    // Sanitización básica - remover caracteres peligrosos
+    const sanitize = (str: string) => str.replace(/[<>]/g, '').trim();
+    const nombreSanitized = sanitize(nombre);
+    const mensajeSanitized = sanitize(mensaje);
+
     // Validación de Turnstile
     if (!turnstileToken) {
       return NextResponse.json(
@@ -26,7 +39,7 @@ export async function POST(request: NextRequest) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: `secret=${process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY}&response=${turnstileToken}`,
+      body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${turnstileToken}`,
     });
 
     const turnstileResult = await turnstileResponse.json();
@@ -37,11 +50,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validación de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Validación de email más robusta
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: 'Email inválido' },
+        { status: 400 }
+      );
+    }
+
+    // Rate limiting básico por IP (opcional)
+    const userIP = request.headers.get('x-forwarded-for') || 'unknown';
+
+    // Validar que no contenga URLs sospechosas (anti-spam)
+    const suspiciousPatterns = /https?:\/\/|www\.|\.com|\.net|\.org/i;
+    if (suspiciousPatterns.test(nombreSanitized) || suspiciousPatterns.test(mensajeSanitized)) {
+      return NextResponse.json(
+        { error: 'Contenido no permitido detectado' },
         { status: 400 }
       );
     }
@@ -51,7 +76,7 @@ export async function POST(request: NextRequest) {
     // 2. Guardado en base de datos
     
     // Por ahora, simular guardado exitoso
-    console.log('Datos recibidos:', { nombre, email, mensaje, timestamp: new Date() });
+    // console.log('Datos recibidos:', { nombre, email, mensaje, timestamp: new Date() });
 
     // TODO: Implementar envío de email
     // TODO: Implementar guardado en base de datos

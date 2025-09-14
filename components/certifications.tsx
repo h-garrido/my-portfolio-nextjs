@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import MotionTransition from "./transition-component";
 
@@ -38,8 +37,8 @@ const certificationsData = [
 const Certifications = () => {
   return (
     <MotionTransition position="right" className="w-full">
-      <div className="flex flex-col justify-center max-w-5xl mx-auto my-8">
-        <h2 className="text-4xl font-bold text-center mb-8 text-white">
+      <div className="flex flex-col justify-center max-w-5xl mx-auto my-8 pb-16">
+        <h2 className="text-4xl font-bold text-center mb-8 mt-16 text-white">
           Certificaciones
           <span className="block text-2xl font-normal text-gray-300 mt-2">
             Validando competencias técnicas
@@ -50,9 +49,9 @@ const Certifications = () => {
           {certificationsData.map((cert) => (
             <div
               key={cert.id}
-              className="group relative overflow-hidden rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+              className="group relative overflow-hidden rounded-xl bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 flex flex-col"
             >
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-16 h-16 relative">
                     <Image
@@ -76,19 +75,19 @@ const Certifications = () => {
                   {cert.issuer}
                 </p>
 
-                <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                <p className="text-gray-300 text-sm mb-6 leading-relaxed flex-1">
                   {cert.description}
                 </p>
 
-                <Link
-                  href={cert.credlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium group/btn"
+                <button
+                  onClick={() => {
+                    window.open(cert.credlyUrl, '_blank', 'noopener,noreferrer');
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium group/btn cursor-pointer z-10 relative"
                 >
                   <span>Ver Certificación</span>
                   <ExternalLink size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                </Link>
+                </button>
               </div>
 
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

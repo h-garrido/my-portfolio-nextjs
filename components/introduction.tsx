@@ -74,7 +74,7 @@ const Introduction = () => {
             from_name: formData.nombre,
             from_email: formData.email,
             message: formData.mensaje,
-            to_email: "hernan.garrido@outlook.com",
+            to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hernan.garrido@outlook.com",
           },
           process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
         );
