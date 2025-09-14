@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${turnstileToken}`,
+      body: `secret=${process.env.NEXT_PUBLIC_TURNSTILE_SECRET_KEY}&response=${turnstileToken}`,
     });
 
     const turnstileResult = await turnstileResponse.json();
