@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Rate limiting básico por IP (opcional)
-    const userIP = request.headers.get('x-forwarded-for') || 'unknown';
+    // const userIP = request.headers.get('x-forwarded-for') || 'unknown';
 
     // Validar que no contenga URLs sospechosas (anti-spam)
     const suspiciousPatterns = /https?:\/\/|www\.|\.com|\.net|\.org/i;
