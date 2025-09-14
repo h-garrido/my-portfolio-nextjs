@@ -37,7 +37,7 @@ const certificationsData = [
 const Certifications = () => {
   return (
     <MotionTransition position="right" className="w-full">
-      <div className="flex flex-col justify-center max-w-5xl mx-auto my-8 pb-16">
+      <div className="flex flex-col justify-center max-w-5xl mx-auto my-8 pb-16 px-4">
         <h2 className="text-4xl font-bold text-center mb-8 mt-16 text-white">
           Certificaciones
           <span className="block text-2xl font-normal text-gray-300 mt-2">
