@@ -1,4 +1,5 @@
 import Avatar from "@/components/avatar";
+import Certifications from "@/components/certifications";
 import ContainerPage from "@/components/container";
 import CounterServices from "@/components/counter-services";
 import CoverParticles from "@/components/cover-particles";
@@ -14,12 +15,15 @@ const AboutMePage = () => {
         <ContainerPage>
           <Avatar />
           <h1 className="text-2xl leading-tight text-center md:text-left md:text-5xl md:mt-10">
-            Mi trayectoria académica{" "}
-            <span className="block font-bold text-blue-500">y profesional</span>
+            Mi trayectoria Académica y{" "}
+            <span className="block font-bold text-blue-500">Profesional</span>
           </h1>
           <CounterServices />
           <TimeLine />
         </ContainerPage>
+      </div>
+      <div className="bg-slate-900/90">
+        <Certifications />
       </div>
     </>
   );

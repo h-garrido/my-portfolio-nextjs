@@ -43,51 +43,89 @@ export const itemsNavbar = [
 export const dataAboutPage = [
   {
     id: 1,
-    title: "Frontend Developer",
-    subtitle: "TechSolutions",
+    title: "Titulación - Ingeniería en Informática",
+    subtitle: "Instituto Profesional Duoc UC",
     description:
-      "Colabora con un equipo dinámico para desarrollar interfaces de usuario atractivas y funcionales que impulsen el éxito de nuestros clientes en el mundo digital.",
-    date: "Nov 2023 ",
+      "Proceso de titulación en Ingeniería en Informática con mención en Ciencias de Datos, especializándose en construcción de modelos, pipelines, machine learning, MLOps y generación de reportes para la toma de decisiones.",
+    date: "Dic 2025",
   },
   {
     id: 2,
-    title: "Creador de Experiencias Digitales",
-    subtitle: "PixelCrafters",
+    title: "Proyecto de Título",
+    subtitle: "Sistema ETL para Empresa de Construcción Axis",
     description:
-      "Trabaja en proyectos emocionantes que desafían los límites de la creatividad y la tecnología. Únete a nosotros mientras creamos experiencias digitales cautivadoras que inspiran y cautivan a nuestros usuarios.",
-    date: "May 2021",
+      "Actualmente desarrollando un sistema de software para la extracción, transformación y carga de datos de producción, generando insights valiosos para la toma de decisiones empresariales mediante análisis de datos y visualizaciones interactivas.",
+    date: "Ago 2025",
   },
   {
     id: 3,
-    title: "Especialista en Desarrollo Frontend",
-    subtitle: "CodeForge Solutions",
+    title: "Practicante Desarrollo Web Fullstack",
+    subtitle: "Cooperativa Regional Eléctrica Llanquihue Ltda",
     description:
-      "Como desarrollador frontend, tendrás la oportunidad de colaborar en proyectos diversos y desafiantes que te permitirán expandir tus habilidades y dejar tu huella en el mundo digital.",
-    date: "Ago 2019",
+      "Migración, rediseño y refactorización de la página web principal y sucursal virtual. Aplicación de procesos de modernización utilizando PHP, HTML, CSS, JavaScript y PostgreSQL, mejorando la experiencia tanto para clientes como administradores.",
+    date: "Ago 2025",
   },
   {
     id: 4,
-    title: "Prácticas Grado",
-    subtitle: "WebWizards Inc.",
+    title: "Azure Data Fundamentals (DP-900)",
+    subtitle: "Microsoft Azure Certification",
     description:
-      "Únete a nosotros mientras creamos sitios web y aplicaciones interactivas que sorprenden y deleitan a nuestros clientes. Si tienes pasión por el diseño y la programación, y disfrutas colaborar en un entorno creativo, ¡queremos conocerte!        ",
-    date: "Mar 2018",
+      "Certificación que valida competencias fundamentales en conceptos de datos, servicios de datos relacionales y no relacionales en Microsoft Azure, y análisis de cargas de trabajo de datos en la nube.",
+    date: "Ago 2025",
+  },
+  {
+    id: 5,
+    title: "Python Essentials 1",
+    subtitle: "Cisco Networking Academy",
+    description:
+      "Certificación que valida conocimientos fundamentales en programación Python, incluyendo sintaxis, estructuras de datos, programación orientada a objetos y mejores prácticas de desarrollo.",
+    date: "Abr 2025",
+  },
+  {
+    id: 6,
+    title: "Azure AI Fundamentals (AI-900)",
+    subtitle: "Microsoft Azure Certification",
+    description:
+      "Certificación que valida conocimientos fundamentales en inteligencia artificial y machine learning, incluyendo servicios de IA cognitivos, machine learning y computer vision en Azure.",
+    date: "Oct 2024",
+  },
+  {
+    id: 7,
+    title: "Ingeniería en Informática - Ciencias de Datos",
+    subtitle: "Instituto Profesional Duoc UC",
+    description:
+      "Formación especializada en construcción de modelos de datos, pipelines, estadísticas, machine learning, MLOps, versionado, monitoreo, retraining y generación de reportes para la toma de decisiones empresariales.",
+    date: "2022-2025",
   },
 ];
 
 export const dataCounter = [
   {
     id: 0,
-    endCounter: 2,
+    endCounter: 3,
     text: "Años de experiencia",
     lineRight: true,
     lineRightMobile: true,
   },
   {
     id: 1,
-    endCounter: 3,
-    text: "Proyectos realizados",
+    endCounter: 5,
+    text: "Proyectos desarrollados",
     lineRight: true,
+    lineRightMobile: false,
+  },
+  {
+    id: 2,
+    endCounter: 3,
+    text: "Certificaciones obtenidas",
+    lineRight: true,
+    lineRightMobile: true,
+  },
+  {
+    id: 3,
+    endCounter: 10,
+    text: "Tecnologías dominadas",
+    lineRight: false,
     lineRightMobile: false,
   },
 ];
