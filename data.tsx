@@ -46,7 +46,7 @@ export const dataAboutPage = [
     title: "Titulación - Ingeniería en Informática",
     subtitle: "Instituto Profesional Duoc UC",
     description:
-      "Proceso de titulación en Ingeniería en Informática con mención en Ciencias de Datos, especializándose en construcción de modelos, pipelines, machine learning, MLOps y generación de reportes para la toma de decisiones.",
+      "Titulación en Ingeniería en Informática con mención en Ciencias de Datos, especializándose en construcción de modelos, pipelines, machine learning, MLOps y generación de reportes para la toma de decisiones.",
     date: "Dic 2025",
   },
   {
@@ -54,7 +54,7 @@ export const dataAboutPage = [
     title: "Proyecto de Título",
     subtitle: "Sistema ETL para Empresa de Construcción Axis",
     description:
-      "Actualmente desarrollando un sistema de software para la extracción, transformación y carga de datos de producción, generando insights valiosos para la toma de decisiones empresariales mediante análisis de datos y visualizaciones interactivas.",
+      "Desarrollo de un sistema de software para la extracción, transformación y carga de datos de producción, generando insights valiosos para la toma de decisiones empresariales mediante análisis de datos y visualizaciones interactivas.",
     date: "Ago 2025",
   },
   {

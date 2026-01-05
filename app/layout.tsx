@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
-import Script from "next/script";            // ← añade
+import Script from "next/script";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";

@@ -132,7 +132,7 @@ const Introduction = () => {
             />
           </h1>
           <p className="mx-auto mb-4 text-xl md:mx-0 md:mb-8">
-            Estudiante egresado de Ingeniería en Informática especializado en
+            Ingeniero en Informática, especializado en
             Ciencia de Datos y Análisis, con expertise en Machine Learning,
             Business Intelligence y desarrollo de herramientas interactivas.
           </p>
