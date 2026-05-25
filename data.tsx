@@ -48,6 +48,7 @@ export const dataAboutPage = [
     description:
       "Titulación en Ingeniería en Informática con mención en Ciencias de Datos, especializándose en construcción de modelos, pipelines, machine learning, MLOps y generación de reportes para la toma de decisiones.",
     date: "Dic 2025",
+    category: "educacion",
   },
   {
     id: 2,
@@ -56,6 +57,7 @@ export const dataAboutPage = [
     description:
       "Desarrollo de un sistema de software para la extracción, transformación y carga de datos de producción, generando insights valiosos para la toma de decisiones empresariales mediante análisis de datos y visualizaciones interactivas.",
     date: "Ago 2025",
+    category: "experiencia",
   },
   {
     id: 3,
@@ -64,6 +66,7 @@ export const dataAboutPage = [
     description:
       "Migración, rediseño y refactorización de la página web principal y sucursal virtual. Aplicación de procesos de modernización utilizando PHP, HTML, CSS, JavaScript y PostgreSQL, mejorando la experiencia tanto para clientes como administradores.",
     date: "Ago 2025",
+    category: "experiencia",
   },
   {
     id: 4,
@@ -72,6 +75,7 @@ export const dataAboutPage = [
     description:
       "Certificación que valida competencias fundamentales en conceptos de datos, servicios de datos relacionales y no relacionales en Microsoft Azure, y análisis de cargas de trabajo de datos en la nube.",
     date: "Ago 2025",
+    category: "certificaciones",
   },
   {
     id: 5,
@@ -80,6 +84,7 @@ export const dataAboutPage = [
     description:
       "Certificación que valida conocimientos fundamentales en programación Python, incluyendo sintaxis, estructuras de datos, programación orientada a objetos y mejores prácticas de desarrollo.",
     date: "Abr 2025",
+    category: "certificaciones",
   },
   {
     id: 6,
@@ -88,6 +93,7 @@ export const dataAboutPage = [
     description:
       "Certificación que valida conocimientos fundamentales en inteligencia artificial y machine learning, incluyendo servicios de IA cognitivos, machine learning y computer vision en Azure.",
     date: "Oct 2024",
+    category: "certificaciones",
   },
   {
     id: 7,
@@ -96,6 +102,7 @@ export const dataAboutPage = [
     description:
       "Formación especializada en construcción de modelos de datos, pipelines, estadísticas, machine learning, MLOps, versionado, monitoreo, retraining y generación de reportes para la toma de decisiones empresariales.",
     date: "2022-2025",
+    category: "educacion",
   },
 ];
 
