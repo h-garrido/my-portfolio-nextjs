@@ -94,6 +94,42 @@ const Certifications = () => {
             </div>
           ))}
         </div>
+
+        {/* Otras Certificaciones Especializadas */}
+        <div className="mt-16 bg-slate-900/20 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-slate-800/80 shadow-md">
+          <h3 className="text-xl font-bold text-blue-400 mb-6 text-center md:text-left tracking-tight">
+            Otras Certificaciones Oficiales
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { title: "Scrum Product Owner Professional", issuer: "CertiProf", year: "2025" },
+              { title: "Software Project Leader Professional", issuer: "CertiProf", year: "2025" },
+              { title: "Artificial Intelligence Expert", issuer: "CertiProf", year: "2025" },
+              { title: "Generative AI Professional", issuer: "CertiProf", year: "2025" },
+              { title: "Ethical Hacking Professional", issuer: "CertiProf", year: "2025" },
+              { title: "Cybersecurity Awareness Professional", issuer: "CertiProf", year: "2025" },
+              { title: "Scrum Foundation Professional", issuer: "CertiProf", year: "2025" },
+              { title: "DevOps Essentials Professional", issuer: "CertiProf", year: "2026" },
+              { title: "Cisco Certified Support Technician Cybersecurity", issuer: "Cisco", year: "2026" },
+              { title: "Cisco Certified Support Technician Networking", issuer: "Cisco", year: "2026" },
+              { title: "Red Hat System Administration I – Ver 9.3", issuer: "Red Hat", year: "2025" }
+            ].map((otherCert, index) => (
+              <div key={index} className="p-4 rounded-xl bg-slate-950/40 border border-slate-800/60 hover:border-blue-500/20 transition-all duration-300 flex flex-col justify-between hover:shadow-md hover:shadow-blue-500/5 group">
+                <div>
+                  <h4 className="text-sm font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">
+                    {otherCert.title}
+                  </h4>
+                  <p className="text-xs text-blue-300 font-medium">{otherCert.issuer}</p>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <span className="text-[10px] font-bold text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded-full border border-slate-850">
+                    {otherCert.year}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </MotionTransition>
   );

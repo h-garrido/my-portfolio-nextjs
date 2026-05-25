@@ -43,6 +43,33 @@ export const itemsNavbar = [
 export const dataAboutPage = [
   {
     id: 1,
+    title: "Ingeniero de Datos (Proyecto)",
+    subtitle: "AXIS Desarrollos Constructivos S.A.",
+    description:
+      "Diseño de la arquitectura del MVP 'Axis Flow' para la optimización operativa de la compañía. Desarrollo de pipelines de datos (ETL) en Python (Pandas, NumPy, Scikit-learn) centralizados en MySQL, logrando una reducción del 60% en el tiempo de procesamiento de datos.",
+    date: "Ago 2025 - Dic 2025",
+    category: "experiencia",
+  },
+  {
+    id: 2,
+    title: "Practicante Desarrollador Fullstack",
+    subtitle: "Cooperativa Regional Eléctrica Llanquihue Ltda. (CRELL)",
+    description:
+      "Modernización y rediseño de la plataforma web institucional (HTML/CSS/PHP/JS), logrando una mejora del 75% en accesibilidad y mantenibilidad. Optimización de bases de datos PostgreSQL, automatización de validaciones de formularios con Cloudflare Turnstile, y propuesta de atención digital mediante IA generativa (Dialogflow CX).",
+    date: "Ago 2025 - Oct 2025",
+    category: "experiencia",
+  },
+  {
+    id: 3,
+    title: "Soporte Técnico e Infraestructura TI (Freelance)",
+    subtitle: "GyA Servicios Tecnológicos",
+    description:
+      "Resolución de incidentes de hardware y software, configuración y optimización de redes locales (LAN/WLAN) alineadas con estándares Cisco Networking, auditorías básicas de seguridad informática, administración de sistemas operativos Linux (Red Hat) y Windows, y consultorías personalizadas.",
+    date: "Ago 2022 - Ene 2026",
+    category: "experiencia",
+  },
+  {
+    id: 4,
     title: "Titulación - Ingeniería en Informática",
     subtitle: "Instituto Profesional Duoc UC",
     description:
@@ -51,25 +78,7 @@ export const dataAboutPage = [
     category: "educacion",
   },
   {
-    id: 2,
-    title: "Proyecto de Título",
-    subtitle: "Sistema ETL para Empresa de Construcción Axis",
-    description:
-      "Desarrollo de un sistema de software para la extracción, transformación y carga de datos de producción, generando insights valiosos para la toma de decisiones empresariales mediante análisis de datos y visualizaciones interactivas.",
-    date: "Ago 2025",
-    category: "experiencia",
-  },
-  {
-    id: 3,
-    title: "Practicante Desarrollo Web Fullstack",
-    subtitle: "Cooperativa Regional Eléctrica Llanquihue Ltda",
-    description:
-      "Migración, rediseño y refactorización de la página web principal y sucursal virtual. Aplicación de procesos de modernización utilizando PHP, HTML, CSS, JavaScript y PostgreSQL, mejorando la experiencia tanto para clientes como administradores.",
-    date: "Ago 2025",
-    category: "experiencia",
-  },
-  {
-    id: 4,
+    id: 5,
     title: "Azure Data Fundamentals (DP-900)",
     subtitle: "Microsoft Azure Certification",
     description:
@@ -78,7 +87,7 @@ export const dataAboutPage = [
     category: "certificaciones",
   },
   {
-    id: 5,
+    id: 6,
     title: "Python Essentials 1",
     subtitle: "Cisco Networking Academy",
     description:
@@ -87,7 +96,7 @@ export const dataAboutPage = [
     category: "certificaciones",
   },
   {
-    id: 6,
+    id: 7,
     title: "Azure AI Fundamentals (AI-900)",
     subtitle: "Microsoft Azure Certification",
     description:
@@ -96,7 +105,7 @@ export const dataAboutPage = [
     category: "certificaciones",
   },
   {
-    id: 7,
+    id: 8,
     title: "Ingeniería en Informática - Ciencias de Datos",
     subtitle: "Instituto Profesional Duoc UC",
     description:

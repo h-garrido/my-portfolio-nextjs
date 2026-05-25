@@ -96,7 +96,7 @@ const Specialties = () => {
               Stack Tecnológico Principal
             </h3>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-left">
               <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800 hover:border-blue-500/20 transition-colors">
                 <h4 className="font-semibold text-blue-300 mb-3 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
@@ -147,6 +147,20 @@ const Specialties = () => {
                 <div className="flex flex-wrap gap-2">
                   {["Power BI", "Tableau", "Streamlit", "Plotly", "Matplotlib"].map((tech) => (
                     <span key={tech} className="px-2 py-1 text-xs font-medium text-slate-300 bg-slate-800/80 hover:text-white hover:bg-slate-800 rounded-md transition-colors border border-slate-700/50">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800 hover:border-blue-500/20 transition-colors">
+                <h4 className="font-semibold text-blue-300 mb-3 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                  Idiomas & Agilidad
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {["Inglés (B2)", "Scrum", "DevOps", "CRISP-DM", "Git", "Docker"].map((tech) => (
+                    <span key={tech} className="px-2 py-1 text-xs font-bold text-slate-300 bg-slate-850 border border-slate-700/60 hover:text-white hover:bg-slate-800 rounded-md transition-colors">
                       {tech}
                     </span>
                   ))}
