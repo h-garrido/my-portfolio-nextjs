@@ -48,7 +48,7 @@ const Specialties = () => {
         animate="visible"
         className="max-w-6xl mx-auto"
       >
-        <h2 className="text-4xl font-bold text-center mb-16 text-blue-500">
+        <h2 className="text-3xl font-extrabold tracking-tight text-center mb-16 text-blue-500 md:text-5xl">
           Mis Especialidades
         </h2>
 
@@ -60,62 +60,101 @@ const Specialties = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: index * 0.2 }}
-              className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 p-6 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+              className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 p-6 rounded-xl border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 flex flex-col justify-between"
             >
-              <div className="text-center mb-6">
-                <div className="text-4xl mb-3">{specialty.icon}</div>
-                <h3 className="text-xl font-bold text-blue-400">
-                  {specialty.title}
-                </h3>
-              </div>
+              <div>
+                <div className="text-center mb-6">
+                  <div className="text-4xl mb-3">{specialty.icon}</div>
+                  <h3 className="text-xl font-bold text-blue-400">
+                    {specialty.title}
+                  </h3>
+                </div>
 
-              <ul className="space-y-3">
-                {specialty.skills.map((skill, skillIndex) => (
-                  <li key={skillIndex} className="text-sm text-gray-300">
-                    <span className="text-blue-400 mr-2">•</span>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+                <ul className="space-y-3">
+                  {specialty.skills.map((skill, skillIndex) => (
+                    <li key={skillIndex} className="text-sm text-slate-300 leading-relaxed">
+                      <span className="text-blue-500 mr-2 font-bold">•</span>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* <motion.div
+        {/* Stack Tecnológico Showcase */}
+        <motion.div
           variants={fadeIn("bottom")}
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.8 }}
-          className="mt-16 mb-20 text-center"
+          className="mt-20 mb-10 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-8 rounded-xl border border-blue-500/30">
-            <h3 className="text-2xl font-bold mb-4 text-blue-400">
+          <div className="bg-gradient-to-br from-slate-900/80 to-slate-950/80 backdrop-blur-md p-8 rounded-2xl border border-slate-800 hover:border-blue-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/5">
+            <h3 className="text-2xl font-bold mb-8 text-blue-400 tracking-tight">
               Stack Tecnológico Principal
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-              <div>
-                <h4 className="font-semibold text-blue-300 mb-2">Lenguajes</h4>
-                <p className="text-gray-300">Python, SQL</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-blue-300 mb-2">Análisis</h4>
-                <p className="text-gray-300">Pandas, NumPy, SciKit Learn</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-blue-300 mb-2">
-                  ML Frameworks
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+              <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800 hover:border-blue-500/20 transition-colors">
+                <h4 className="font-semibold text-blue-300 mb-3 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                  Lenguajes
                 </h4>
-                <p className="text-gray-300">TensorFlow, PyTorch</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Python", "SQL", "R", "JavaScript", "TypeScript", "PHP"].map((tech) => (
+                    <span key={tech} className="px-2 py-1 text-xs font-medium text-slate-300 bg-slate-800/80 hover:text-white hover:bg-slate-800 rounded-md transition-colors border border-slate-700/50">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div>
-                <h4 className="font-semibold text-blue-300 mb-2">
-                  Visualización
+
+              <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800 hover:border-blue-500/20 transition-colors">
+                <h4 className="font-semibold text-blue-300 mb-3 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                  Análisis de Datos
                 </h4>
-                <p className="text-gray-300">Matplotlib, Seaborn, Plotly</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Pandas", "NumPy", "SciKit-Learn", "Kedro", "Jupyter"].map((tech) => (
+                    <span key={tech} className="px-2 py-1 text-xs font-medium text-slate-300 bg-slate-800/80 hover:text-white hover:bg-slate-800 rounded-md transition-colors border border-slate-700/50">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800 hover:border-blue-500/20 transition-colors">
+                <h4 className="font-semibold text-blue-300 mb-3 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                  ML / MLOps
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {["TensorFlow", "PyTorch", "MLflow", "Keras", "Azure AI"].map((tech) => (
+                    <span key={tech} className="px-2 py-1 text-xs font-medium text-slate-300 bg-slate-800/80 hover:text-white hover:bg-slate-800 rounded-md transition-colors border border-slate-700/50">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800 hover:border-blue-500/20 transition-colors">
+                <h4 className="font-semibold text-blue-300 mb-3 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                  Visualización / BI
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {["Power BI", "Tableau", "Streamlit", "Plotly", "Matplotlib"].map((tech) => (
+                    <span key={tech} className="px-2 py-1 text-xs font-medium text-slate-300 bg-slate-800/80 hover:text-white hover:bg-slate-800 rounded-md transition-colors border border-slate-700/50">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </motion.div> */}
+        </motion.div>
       </motion.div>
     </div>
   );

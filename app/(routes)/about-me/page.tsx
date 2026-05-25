@@ -14,9 +14,9 @@ const AboutMePage = () => {
         <CoverParticles />
         <ContainerPage>
           <Avatar />
-          <h1 className="text-2xl leading-tight text-center md:text-left md:text-5xl md:mt-10">
+          <h1 className="text-3xl font-extrabold tracking-tight leading-tight text-center md:text-left md:text-5xl md:mt-10">
             Mi trayectoria Académica y{" "}
-            <span className="block font-bold text-blue-500">Profesional</span>
+            <span className="block font-extrabold text-blue-500">Profesional</span>
           </h1>
           <CounterServices />
           <TimeLine />

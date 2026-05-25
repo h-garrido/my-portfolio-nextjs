@@ -38,9 +38,9 @@ const Certifications = () => {
   return (
     <MotionTransition position="right" className="w-full">
       <div className="flex flex-col justify-center max-w-5xl mx-auto my-8 pb-16 px-4">
-        <h2 className="text-4xl font-bold text-center mb-8 mt-16 text-white">
+        <h2 className="text-3xl font-extrabold tracking-tight text-center mb-8 mt-16 text-white md:text-5xl">
           Certificaciones
-          <span className="block text-2xl font-normal text-gray-300 mt-2">
+          <span className="block text-xl font-normal text-slate-300 mt-2">
             Validando competencias técnicas
           </span>
         </h2>

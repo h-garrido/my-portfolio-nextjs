@@ -6,6 +6,8 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { TypeAnimation } from "react-type-animation";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Download } from "lucide-react";
 
 const Introduction = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +22,7 @@ const Introduction = () => {
     message: string;
   }>({ type: null, message: "" });
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -99,16 +102,17 @@ const Introduction = () => {
 
   return (
     <div className="z-20 w-full bg-black/60 relative">
-      <div className="grid items-center h-full p-6 py-8 md:py-12 md:grid-cols-2">
+      <div className="grid items-center h-full p-6 py-8 md:py-12 md:grid-cols-2 gap-8">
         <Image
           src="/home-4.png"
           priority
           width="800"
           height="800"
           alt="Profile pic"
+          className="w-full h-auto max-w-[280px] md:max-w-full mx-auto order-2 md:order-last"
         />
-        <div className="flex flex-col justify-center max-w-md">
-          <h1 className="mb-5 text-2xl leading-tight text-center md:text-left md:text-4xl md:mb-10">
+        <div className="flex flex-col justify-center max-w-md order-1 md:order-first">
+          <h1 className="mb-5 text-3xl font-extrabold tracking-tight leading-tight text-center md:text-left md:text-5xl md:mb-8">
             Si puedes pensarlo,
             <TypeAnimation
               sequence={[
@@ -121,141 +125,170 @@ const Introduction = () => {
                 " puedes desarrollarlo.",
                 1000,
                 " puedes optimizarlo.",
-                1000,
-                " puedes implementarlo.",
-                1000,
+                1000
               ]}
               wrapper="span"
               speed={50}
               repeat={Infinity}
-              className="block font-bold text-blue-500"
+              className="block font-extrabold text-blue-500"
             />
           </h1>
-          <p className="mx-auto mb-4 text-xl md:mx-0 md:mb-8">
+          <p className="mx-auto mb-6 text-base md:text-lg text-slate-300 leading-relaxed text-center md:text-left">
             Ingeniero en Informática, especializado en
             Ciencia de Datos y Análisis, con expertise en Machine Learning,
             Business Intelligence y desarrollo de herramientas interactivas.
           </p>
 
-          <div className="flex items-center justify-center gap-3 md:justify-start md:gap-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:justify-start md:gap-4 w-full sm:w-auto">
             <Link
               href="/portfolio"
-              className="px-3 py-2 transition-all border-2 cursor-pointer text-md w-fit rounded-xl hover:shadow-xl hover:shadow-white/50"
+              className="px-4 py-2.5 transition-all duration-300 border-2 border-white hover:border-blue-500 cursor-pointer text-sm font-semibold w-full sm:w-fit rounded-xl hover:shadow-xl hover:shadow-blue-500/20 text-center"
             >
               Ver proyectos
             </Link>
-            {/* <Link
-              href="/"
-              className="px-3 py-2 transition-all border-2 cursor-pointer text-blue-500 border-blue-500 text-md w-fit rounded-xl hover:shadow-xl hover:shadow-blue-500"
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-4 py-2.5 transition-all duration-300 border-2 border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 cursor-pointer text-sm font-semibold w-full sm:w-fit rounded-xl hover:shadow-xl hover:shadow-blue-500/20 text-center"
             >
               Contáctame
-            </Link> */}
-          </div>
-
-          {/* Formulario agregado */}
-          <form
-            onSubmit={handleSubmit}
-            className="mt-6 mb-6 pb-40 md:pb-24 space-y-4"
-          >
-            <h2 className="text-center text-2xl font-bold mb-4">Contáctame</h2>
-            <div>
-              <label
-                htmlFor="nombre"
-                className="block text-sm font-medium text-white"
-              >
-                Nombre
-              </label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleChange}
-                className="w-full p-2 mt-1 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Tu nombre"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-white"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-2 mt-1 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Tu email"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="mensaje"
-                className="block text-sm font-medium text-white"
-              >
-                Mensaje
-              </label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                value={formData.mensaje}
-                onChange={handleChange}
-                className="w-full p-2 mt-1 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-vertical min-h-[100px]"
-                placeholder="Tu mensaje"
-                rows={4}
-                required
-              />
-            </div>
-            {/* Mostrar estado del envío */}
-            {submitStatus.type && (
-              <div
-                className={`p-3 rounded-md text-sm ${
-                  submitStatus.type === "success"
-                    ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                    : "bg-red-500/20 text-red-400 border border-red-500/30"
-                }`}
-              >
-                {submitStatus.message}
-              </div>
-            )}
-
-            {/* Cloudflare Turnstile */}
-            <div className="flex justify-center">
-              <Turnstile
-                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-                onSuccess={setTurnstileToken}
-                onError={() => setTurnstileToken(null)}
-                onExpire={() => setTurnstileToken(null)}
-                options={{
-                  theme: "dark",
-                  size: "normal",
-                  retry: "auto",
-                  refreshExpired: "auto",
-                }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full py-2 px-4 text-white rounded-md transition-colors ${
-                isSubmitting
-                  ? "bg-gray-600 cursor-not-allowed"
-                  : "bg-blue-500 hover:bg-blue-600"
-              }`}
-            >
-              {isSubmitting ? "Enviando..." : "Enviar"}
             </button>
-          </form>
-          {/* Fin del formulario */}
+            <a
+              href="/cv.pdf"
+              download="CV_Hernan_Garrido.pdf"
+              className="px-4 py-2.5 transition-all duration-300 border-2 border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white cursor-pointer text-sm font-semibold w-full sm:w-fit rounded-xl hover:shadow-xl hover:shadow-slate-500/10 text-center flex items-center justify-center gap-2"
+            >
+              <Download size={16} />
+              Descargar CV
+            </a>
+          </div>
         </div>
       </div>
+
+      {/* Modal de Contacto Glassmórfico */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-lg p-6 bg-slate-900/80 backdrop-blur-md border border-slate-700/30 rounded-2xl shadow-2xl shadow-blue-500/10 flex flex-col justify-between max-h-[90vh] overflow-y-auto"
+            >
+              {/* Botón Cerrar */}
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors cursor-pointer z-50"
+                aria-label="Cerrar modal"
+              >
+                <X size={20} />
+              </button>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <h2 className="text-2xl font-bold text-center text-white mb-1">
+                  Contáctame
+                </h2>
+                <p className="text-center text-xs text-slate-400 mb-4">
+                  Envíame un mensaje y me pondré en contacto contigo a la brevedad.
+                </p>
+
+                <div>
+                  <label htmlFor="nombre" className="block text-xs font-semibold text-slate-300 mb-1">
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-slate-950/60 text-white border border-slate-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                    placeholder="Tu nombre"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-xs font-semibold text-slate-300 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-slate-950/60 text-white border border-slate-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                    placeholder="Tu email"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="mensaje" className="block text-xs font-semibold text-slate-300 mb-1">
+                    Mensaje
+                  </label>
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    value={formData.mensaje}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-slate-950/60 text-white border border-slate-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none min-h-[100px] text-sm"
+                    placeholder="Tu mensaje..."
+                    rows={4}
+                    required
+                  />
+                </div>
+
+                {/* Mostrar estado del envío */}
+                {submitStatus.type && (
+                  <div
+                    className={`p-3 rounded-md text-xs font-semibold ${
+                      submitStatus.type === "success"
+                        ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                        : "bg-red-500/20 text-red-400 border border-red-500/30"
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
+
+                {/* Cloudflare Turnstile */}
+                <div className="flex justify-center py-1">
+                  <Turnstile
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                    onSuccess={setTurnstileToken}
+                    onError={() => setTurnstileToken(null)}
+                    onExpire={() => setTurnstileToken(null)}
+                    options={{
+                      theme: "dark",
+                      size: "normal",
+                      retry: "auto",
+                      refreshExpired: "auto",
+                    }}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full py-2.5 px-4 text-sm font-semibold text-white rounded-lg transition-colors cursor-pointer ${
+                    isSubmitting
+                      ? "bg-slate-700 cursor-not-allowed text-slate-400"
+                      : "bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
+                  }`}
+                >
+                  {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
