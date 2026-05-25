@@ -104,7 +104,7 @@ const Introduction = () => {
     <div className="z-20 w-full bg-black/60 relative">
       <div className="grid items-center h-full p-6 py-8 md:py-12 md:grid-cols-2 gap-8">
         <Image
-          src="/home-4.png"
+          src="/home-4.webp"
           priority
           width="800"
           height="800"

@@ -10,7 +10,7 @@ const Avatar = () => {
       className="bottom-0 right-0 hidden md:inline-block md:absolute"
     >
       <Image
-        src="/avatar-1.png"
+        src="/avatar-1.webp"
         width={350}
         height={350}
         className="w-full h-full"

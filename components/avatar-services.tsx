@@ -8,7 +8,7 @@ const AvatarServices = () => {
       className="bottom-0 left-0 hidden md:inline-block md:absolute"
     >
       <Image
-        src="/services.png"
+        src="/services.webp"
         width={300}
         height={300}
         className="w-[350px] h-full"

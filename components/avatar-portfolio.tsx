@@ -11,7 +11,7 @@ const AvatarPortfolio = () => {
         hidden md:inline-block md:absolute"
     >
       <Image
-        src="/avatar-works.png"
+        src="/avatar-works.webp"
         width={300}
         height={300}
         className="

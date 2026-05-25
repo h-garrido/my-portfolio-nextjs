@@ -134,7 +134,7 @@ export const dataPortfolio = [
   {
     id: 1,
     title: "ML WeatherAus",
-    image: "/proyecto1.png",
+    image: "/proyecto1.webp",
     urlGithub: "https://github.com/h-garrido/weather-aus",
     urlDemo: "#!",
     technologies: ["Python", "SciKit-Learn", "Pandas", "Jupyter", "Kedro", "NumPy"],
@@ -142,7 +142,7 @@ export const dataPortfolio = [
   {
     id: 2,
     title: "ML Monopoly",
-    image: "/proyecto2.png",
+    image: "/proyecto2.webp",
     urlGithub: "https://github.com/h-garrido/Proyecto-Monopoly-Dormammu",
     urlDemo: "#!",
     technologies: ["Python", "SciKit-Learn", "Pandas", "NumPy", "Jupyter", "Streamlit"],
@@ -150,7 +150,7 @@ export const dataPortfolio = [
   {
     id: 3,
     title: "WEB Prox. Película MCU",
-    image: "/proyecto3.png",
+    image: "/proyecto3.webp",
     urlGithub: "https://github.com/h-garrido/proyecto-php",
     urlDemo: "#!",
     technologies: ["PHP", "HTML", "PicoCSS", "API"],
@@ -158,7 +158,7 @@ export const dataPortfolio = [
   {
     id: 4,
     title: "Próximo Proyecto...",
-    image: "/proximamente.png",
+    image: "/proximamente.webp",
     urlGithub: "#!",
     urlDemo: "#!",
     technologies: [],
