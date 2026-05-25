@@ -13,6 +13,9 @@ const urbanist = Urbanist({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Hernán Garrido's Portfolio landing page 💼",
   description: "Landing page made by Hernán Garrido, using Next.js and Tailwind CSS",
+  icons: {
+    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💻</text></svg>',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
