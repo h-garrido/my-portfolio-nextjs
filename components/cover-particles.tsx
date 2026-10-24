@@ -1,31 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import { useCallback } from "react";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import type { Engine } from "@tsparticles/engine";
 
 const CoverParticles = () => {
-  const [init, setInit] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      //await loadAll(engine);
-      //await loadFull(engine);
-      await loadSlim(engine);
-      //await loadBasic(engine);
-    }).then(() => {
-      setInit(true);
-    });
+  const init = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
   }, []);
 
   return (
-    init && (
-      <div className="w-[0px]">
+    <div className="w-[0px]">
+      <ParticlesProvider init={init}>
         <Particles
           id="tsparticles"
           options={{
@@ -91,8 +78,8 @@ const CoverParticles = () => {
             detectRetina: true,
           }}
         />
-      </div>
-    )
+      </ParticlesProvider>
+    </div>
   );
 };
 

@@ -2,9 +2,8 @@ import {
   CodeSquare,
   HomeIcon,
   UserRound,
-  Linkedin,
-  Github,
 } from "lucide-react";
+import { Github, Linkedin } from "@/components/social-icons";
 
 export const socialNetworks = [
   {
